@@ -1,4 +1,4 @@
-# Python WebUI v2.5.0
+# Python WebUI v2.5.1
 #
 # http://webui.me
 # https://github.com/webui-dev/python-webui
@@ -16,7 +16,7 @@ from typing import Callable, Optional
 from ctypes import *
 
 # Import all the raw bindings
-import webui_bindings as _raw
+from . import webui_bindings as _raw
 
 
 
