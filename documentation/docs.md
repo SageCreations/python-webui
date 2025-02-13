@@ -1,4 +1,4 @@
-from examples.serve_folder.main import my_windowfrom examples.serve_folder.main import my_windowfrom examples.serve_folder.main import my_windowfrom examples.serve_folder.main import my_windowfrom examples.serve_folder.main import my_windowfrom examples.serve_folder.main import my_windowfrom PyPI.Package.src.webui.webui import get_new_window_idfrom examples.serve_folder.main import my_window
+from examples.serve_folder.main import my_windowfrom examples.serve_folder.main import my_windowfrom examples.serve_folder.main import my_windowfrom examples.serve_folder.main import my_windowfrom examples.serve_folder.main import my_windowfrom examples.serve_folder.main import my_windowfrom examples.serve_folder.main import my_windowfrom examples.serve_folder.main import my_windowfrom examples.serve_folder.main import my_windowfrom examples.serve_folder.main import my_windowfrom examples.serve_folder.main import my_windowfrom examples.serve_folder.main import my_windowfrom PyPI.Package.src.webui.webui import get_new_window_idfrom examples.serve_folder.main import my_window
 
 ### Download And Install
 ```sh
@@ -240,7 +240,6 @@ webui.set_timeout(30)
 
 
 ### set_icon
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
@@ -251,361 +250,464 @@ my_window.set_icon("<svg>...</svg>", "image/svg+xml")
 
 
 ### encode
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+encoded_string = webui.ui_encode("Foo Bar")
+print(f"Base64 Encoded: {encoded_string}")
 ```
 
 
 ### decode
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+decoded_string = webui.ui_decode("SGVsbG8=")
+print(f"Decoded String: {decoded_string}")  # Output: Hello
 ```
 
 
 ### free
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+my_buffer = webui.malloc(1024)
+
+webui.free(my_buffer)  # Free the allocated buffer
 ```
 
 
 ### malloc
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+buffer = webui.malloc(1024)
+if buffer:
+    print(f"Memory allocated at address: {buffer}")
+    webui.free(buffer)  # Free the allocated memory
 ```
 
 
 ### send_raw
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+my_window = webui.Window()
+my_buffer = webui.malloc(1024)
+
+my_window.send_raw("myJavaScriptFunc", my_buffer, 64)
+# Sends 64 bytes of raw data to the JavaScript function `myJavaScriptFunc`.
 ```
 
 
 ### set_hide
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+my_window = webui.Window()
+
+my_window.set_hide(True)  # Hide the window
+my_window.set_hide(False) # Show the window
 ```
 
 
 ### set_size
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+my_window = webui.Window()
+
+my_window.set_size(800, 600)  # Set window size to 800x600 pixels
 ```
 
 
 ### set_position
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+my_window = webui.Window()
+
+my_window.set_position(100, 100)  # Move window to (100, 100) on the screen
 ```
 
 
 ### set_profile
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+my_window = webui.Window()
+
+my_window.set_profile("Bar", "/Home/Foo/Bar")  # Use a custom profile
+my_window.set_profile("", "")  # Use the default profile
 ```
 
 
 ### set_proxy
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+my_window = webui.Window()
+
+my_window.set_proxy("http://127.0.0.1:8888")  # Set the proxy server
 ```
 
 
 ### get_url
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+my_window = webui.Window()
+
+url = my_window.get_url()
+print(f"Current URL: {url}")
 ```
 
 
 ### set_public
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+my_window = webui.Window()
+
+my_window.set_public(True)  # Enable public network access
+my_window.set_public(False) # Restrict access to local connections
 ```
 
 
 ### navigate
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+my_window = webui.Window()
+
+my_window.navigate("http://domain.com")  # Navigate to the specified URL
 ```
 
 
 ### clean
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+webui.wait()
+webui.clean() # Free all WebUI-related resources
 ```
 
 
 ### delete_all_profiles
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+webui.wait()  
+webui.delete_all_profiles()  # Delete all browser profiles
+webui.clean()  
 ```
 
 
 ### delete_profile
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+my_window = webui.Window()
+
+my_window.delete_profile()  # Delete the browser profile for this window
 ```
 
 
 ### get_parent_process_id
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+my_window = webui.Window()
+
+parent_pid = my_window.get_parent_process_id()
+print(f"Parent Process ID: {parent_pid}")
 ```
 
 
 ### get_child_process_id
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+my_window = webui.Window()
+
+child_pid = my_window.get_child_process_id()
+print(f"Child Process ID: {child_pid}")
 ```
 
 
 ### set_port
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+my_window = webui.Window()
+
+success = my_window.set_port(8080)
+if success:
+    print("WebUI is now using port 8080.")
+else:
+    print("Port 8080 is unavailable.")
 ```
 
 
 ### set_config
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+webui.set_config(webui.Config.show_wait_connection, False)  # Disable waiting for connection
 ```
 
 
 ### set_event_blocking
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+my_window = webui.Window()
+
+my_window.set_event_blocking(True)  # Enable blocking event processing
+my_window.set_event_blocking(False) # Enable non-blocking event processing
 ```
 
 
 ### set_tls_certificate
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+success = webui.set_tls_certificate(
+    "-----BEGIN CERTIFICATE-----\n...",
+    "-----BEGIN PRIVATE KEY-----\n..."
+)
+
+if success:
+    print("TLS certificate successfully set.")
+else:
+    print("Failed to set TLS certificate.")
 ```
 
 
 ### run
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+my_window = webui.Window()
+
+my_window.run("alert('Hello');")  # Run an alert in the web UI
 ```
 
 
 ### script
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+my_window = webui.Window()
+
+result = my_window.script("return 4 + 6;")
+if result.error:
+    print("JavaScript execution failed.")
+else:
+    print(f"JavaScript result: {result.response}")
 ```
 
 
 ### set_runtime
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+my_window = webui.Window()
+
+my_window.set_runtime(webui.Runtime.Bun)  # Use Bun as the JavaScript/TypeScript runtime
 ```
 
 
 ### get_count
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+def callback(e: webui.Event):
+    count = e.get_count()
+    print(f"The event has {count} arguments.")
 ```
 
 
 ### get_int_at
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+def callback(e: webui.Event):
+    value = e.get_int_at(0)
+    print(f"The integer at index 0 is {value}.")
 ```
 
 
 ### get_int
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+def callback(e: webui.Event):
+    value = e.get_int()
+    print(f"The first argument is {value}.")
 ```
 
 
 ### get_float_at
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+def callback(e: webui.Event):
+    value = e.get_float_at(0)
+    print(f"The float at index 0 is {value}.")
 ```
 
 
 ### get_float
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+def callback(e: webui.Event):
+    value = e.get_float()
+    print(f"The first argument as a float is {value}.")
 ```
 
 
 ### get_string_at
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+def callback(e: webui.Event):
+    value = e.get_string_at(0)
+    print(f"The string at index 0 is '{value}'.")
 ```
 
 
 ### get_string
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+def callback(e: webui.Event):
+    value = e.get_string()
+    print(f"The first argument as a string is '{value}'.")
 ```
 
 
 ### get_bool_at
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+def callback(e: webui.Event):
+    is_valid = e.get_bool_at(0)
+    print(f"The boolean value at index 0 is {is_valid}.")
 ```
 
 
 ### get_bool
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+def callback(e: webui.Event):
+    is_valid = e.get_bool()
+    print(f"The first argument as a boolean is {is_valid}.")
 ```
 
 
 ### get_size_at
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+def callback(e: webui.Event):
+    arg_size = e.get_size_at(0)
+    print(f"The size of the argument at index 0 is {arg_size} bytes.")
 ```
 
 
 ### get_size
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+def callback(e: webui.Event):
+    arg_size = e.get_size()
+    print(f"The size of the first argument is {arg_size} bytes.")
 ```
 
 
 ### return_int
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+def callback(e: webui.Event):
+    e.return_int(123)
 ```
 
 
 ### return_float
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+def callback(e: webui.Event):
+    e.return_float(123.456)
 ```
 
 
 ### return_string
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+def callback(e: webui.Event):
+    e.return_string("Response...")
 ```
 
 
 ### return_bool
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+def callback(e: webui.Event):
+    e.return_bool(True)
 ```
 
 
 ### open_url
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+webui.open_url("https://webui.me")  # Open the WebUI website in the default browser
 ```
 
 
 ### start_server
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+my_window = webui.Window()
+
+url = my_window.start_server("/full/root/path")
+print(f"Server started at: {url}")
 ```
 
 
 ### get_mime_type
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+mime_type = webui.get_mime_type("foo.png")
+print(f"MIME type: {mime_type}")  # Output: image/png
 ```
 
 
 ### get_port
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+my_window = webui.Window()
+
+port = my_window.get_port()
+print(f"WebUI is running on port: {port}")
 ```
 
 
 ### get_free_port
-[//]: # (TODO: document)
 ```python  
 from webui import webui
 
+port = webui.get_free_port()
+print(f"Available port: {port}")
 ```
 
