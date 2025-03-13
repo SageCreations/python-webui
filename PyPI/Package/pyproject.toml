@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "webui2"
-version = "2.5.1"
+version = "2.5.4"
 authors = [
   { name="Hassan Draga" },
 ]
@@ -15,6 +15,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+    "Typing :: Typed",
 ]
 
 [project.urls]
